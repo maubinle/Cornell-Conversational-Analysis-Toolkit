@@ -28,7 +28,6 @@ class ComplexityTransformer(Transformer):
         :type corpus: Corpus
         """
         for conv_id in corpus.conversations:
-            print("doing a convo")
             conv = corpus.get_conversation(conv_id)
             for utt in conv.iter_utterances():
                 cumu_sentences = 0
@@ -61,7 +60,7 @@ class ComplexityTransformer(Transformer):
                     utt.meta['complexity'] = \
                       {"gunning_fog": gunning_fog,
                       "flesch": flesch,
-                      "flesh_kincaid": flesch_kincaid,
+                      "flesch_kincaid": flesch_kincaid,
                       "num_words": cumu_words,
                       "num_sentences": cumu_sentences}
                 else:
