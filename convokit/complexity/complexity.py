@@ -30,24 +30,25 @@ class ComplexityTransformer(Transformer):
         for conv_id in corpus.conversations:
             conv = corpus.get_conversation(conv_id)
             for utt in conv.iter_utterances():
-                cumu_sentences = 0
-                cumu_words = 0
-                cumu_syllables = 0
-                cumu_syll_counted_words = 0
-                cumu_words_over2_syllables = 0
-                for sentence in sent_tokenize(utt.text):
-                    cumu_sentences += 1
-                    tokenized = word_tokenize(sentence)
-                    cumu_words += len(tokenized)
-                    for token in tokenized:
-                        try:
-                            syll = self.__num_syllables(token)[0]
-                            cumu_syllables += syll
-                            cumu_syll_counted_words += 1
-                            if syll > 2:
-                                cumu_words_over2_syllables += 1
-                        except Exception as e:
-                            pass
+                if utt.text != None:
+                    cumu_sentences = 0
+                    cumu_words = 0
+                    cumu_syllables = 0
+                    cumu_syll_counted_words = 0
+                    cumu_words_over2_syllables = 0
+                    for sentence in sent_tokenize(utt.text):
+                        cumu_sentences += 1
+                        tokenized = word_tokenize(sentence)
+                        cumu_words += len(tokenized)
+                        for token in tokenized:
+                            try:
+                                syll = self.__num_syllables(token)[0]
+                                cumu_syllables += syll
+                                cumu_syll_counted_words += 1
+                                if syll > 2:
+                                    cumu_words_over2_syllables += 1
+                            except Exception as e:
+                                pass
 
                 # readability formulas from https://www.geeksforgeeks.org/readability-index-pythonnlp/
                 if cumu_sentences > 0 and cumu_syll_counted_words > 0:

@@ -22,10 +22,11 @@ class SelfTracker(Transformer):
         for conv_id in corpus.conversations:
             conv = corpus.get_conversation(conv_id)
             for utt in conv.iter_utterances():
-                tokenized = word_tokenize(utt.text.lower())
-                invocations = 0
-                for token in tokenized:
-                    if token in self.key_words:
-                        invocations += 1
-                utt.meta["num_self_invocations"] = invocations
+                if utt.text != None:
+                    tokenized = word_tokenize(utt.text.lower())
+                    invocations = 0
+                    for token in tokenized:
+                        if token in self.key_words:
+                            invocations += 1
+                    utt.meta["num_self_invocations"] = invocations
         return corpus
