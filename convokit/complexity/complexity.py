@@ -55,7 +55,7 @@ class ComplexityTransformer(Transformer):
                     gunning_fog = 0.4 * ((cumu_words / cumu_sentences) + \
                       (cumu_words_over2_syllables / cumu_syll_counted_words))
                     flesch = 206.835 - (1.015 * (cumu_words / cumu_sentences)) - \
-                      (84.6 * (cucumu_syllablescumu_syllablescumu_syllablesmu_syllables / cumu_syll_counted_words))
+                      (84.6 * (cumu_syllables / cumu_syll_counted_words))
                     flesch_kincaid = (0.39 * cumu_words / cumu_sentences) + \
                       (11.8 * cumu_syllables / cumu_syll_counted_words) - 15.59
                     utt.meta['complexity'] = \
