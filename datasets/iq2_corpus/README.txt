@@ -42,6 +42,7 @@ We provide:
 	- title: the title of the debate
 	- date: the date of the debate
 	- url: the url where the debate can be accessed
+	- winner: indicates which side won a debate, 'for,' 'against,' or 'tie'
 	- results: a full breakdown of the starting and ending positions of the audience in the debates. These are all represented as percentages. The 'results' json file contains 3 dicts with the following metadata:
 		- breakdown: entries in this dictionary take the form position1_position2, where position1 is the position at the start of the debate and position2 is the position at the end of the debate. This breakdown is not available for the earlier debates. The entries are thus:
 			- against_against
