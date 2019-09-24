@@ -61,14 +61,14 @@ class ComplexityTransformer(Transformer):
                     utt.meta['complexity'] = \
                       {"gunning_fog": gunning_fog,
                       "flesch": flesch,
-                      "flesh_kincaid": flesch_kincaid
+                      "flesh_kincaid": flesch_kincaid,
                       "num_words": cumu_words,
                       "num_sentences": cumu_sentences}
                 else:
                     utt.meta['complexity'] = \
                       {"gunning_fog": None,
                       "flesch": None,
-                      "flesch_kincaid": None
+                      "flesch_kincaid": None,
                       "num_words": None,
                       "num_sentences": None}
         return corpus
